@@ -13,6 +13,7 @@ export const useAuthStore = defineStore('authstore', {
             this.isAuthenticated = true;
         },
         loginUser(email, password) {
+            const loading = ref(true)
             const storedUser = JSON.parse(localStorage.getItem('user'));
             if (storedUser && storedUser.email === email && storedUser.password === password) {
                 this.user = storedUser;
